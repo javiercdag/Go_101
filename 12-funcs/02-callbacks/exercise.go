@@ -11,7 +11,7 @@ const (
 	Multiply
 )
 
-func (op OperationType) String() string{
+func (op OperationType) String() string {
 	switch op {
 	case Add:
 		return "Add"
@@ -24,7 +24,7 @@ func (op OperationType) String() string{
 	return "not implemented"
 }
 
-func Calculate(op OperationType, a, b float64) float64{
+func Calculate(op OperationType, a, b float64) float64 {
 	switch op {
 	case Add:
 		return a + b
@@ -34,5 +34,5 @@ func Calculate(op OperationType, a, b float64) float64{
 		return a * b
 	}
 
-	return -1;
+	return -1
 }
