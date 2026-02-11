@@ -5,5 +5,10 @@ package readsecretregister
 
 // parseChannelControlRegister constructs 4 octets (8-bit long uint) based on the parameter register.
 func parseChannelControlRegister(charCtrl uint32) (uint8, uint8, uint8, uint8) {
-	// INSERT YOUR CODE HERE
+	RX_PCODE := uint8(charCtrl >> 24)
+	RX_CHAN := uint8(charCtrl >> 16)
+	TX_CHAN := uint8(charCtrl >> 8)
+	TX_PCODE := uint8(charCtrl) // top 24 bits are chopped off
+
+	return TX_CHAN, RX_CHAN, RX_PCODE, TX_PCODE
 }
