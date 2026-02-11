@@ -5,5 +5,11 @@ package narithmetic
 
 // nArithmetic returns the result of an arithmetic operation over "n" elements.
 func nArithmetic(elems [10]int) int {
-	// INSERT YOUR CODE HERE
+	accumulator := elems[0]
+
+	for i := 1; i < len(elems); i++ {
+		accumulator -= elems[i]
+	}
+
+	return accumulator
 }
