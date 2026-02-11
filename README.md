@@ -1,4 +1,4 @@
-# Learning Go: Basic Go exercises
+# GO Kubernetes advanced techniques
 
 A series of basic Go exercises inspired from the [Go: Bootcamp Course](https://github.com/inancgumus/learngo). Solving all exercises will not make you a Go ninja, but it should be enough to get you started.
 
