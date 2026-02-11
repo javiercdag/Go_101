@@ -15,7 +15,6 @@ func gradeExam(percent float32) int {
 	case percent < 60:
 		grade = 3
 	case percent < 80:
-
 		grade = 4
 	case percent >= 80:
 		grade = 5
