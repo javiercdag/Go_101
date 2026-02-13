@@ -17,8 +17,6 @@ func CountWords(texts []string) map[string]int {
 		return finalCounts
 	}
 
-	numWorkers := runtime.NumCPU()
-
 	jobs := make(chan string, len(texts))
 
 	for _, text := range texts {
@@ -27,6 +25,7 @@ func CountWords(texts []string) map[string]int {
 
 	close(jobs)
 
+	numWorkers := runtime.NumCPU()
 	results := make(chan map[string]int, numWorkers)
 
 	var eg errgroup.Group
