@@ -20,22 +20,29 @@ func channelMultiplex(ctx context.Context, inputs []chan any) chan any {
 		})
 	}
 
+	go func() {
+		_ = eg.Wait()
+		close(returnChan)
+	}()
+
 	return returnChan
 }
 
 func safeBridge(ctx context.Context, in <-chan any, out chan<- any) error {
 	for {
 		select {
-		case msg := <-in:
+		case msg, ok := <-in:
+			if !ok {
+				return nil
+			}
+
 			select {
 			case out <- msg:
 			case <-ctx.Done():
-				close(out)
 				return nil
 			}
 
 		case <-ctx.Done():
-			close(out)
 			return nil
 		}
 	}
