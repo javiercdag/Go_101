@@ -38,6 +38,7 @@ func NewThreadPool(n int) (ThreadPool, chan error) {
 	}
 
 	tp.wg.Add(n)
+
 	for i := 0; i < n; i++ {
 		go tp.worker()
 	}
